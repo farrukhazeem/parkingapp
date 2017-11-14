@@ -1,0 +1,15 @@
+app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.nav-right {
+    margin-left: auto;
+    margin-top: 8px;
+}
+.nav-right a{
+    color: white;
+}
