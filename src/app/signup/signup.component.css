@@ -1,15 +1,25 @@
 mat-card {
-    width: 44%;
+    width: 40%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     border: 2px solid #eee;
-    transform: translateY(50%);
-    -webkit-transform: translateY(50%);
-    -moz-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    -o-transform: translateY(50%);
+  
+   
+    
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./../../assets/parkingimg.jpg");
+  background-size:cover; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y:hidden;
+  overflow-x:hidden;
 }
 
 .example-form {
@@ -26,3 +36,5 @@ mat-card {
 
     margin: 0 auto;
   }
+
+ 

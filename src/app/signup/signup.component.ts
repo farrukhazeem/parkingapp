@@ -1,9 +1,11 @@
+import { AuthService } from './../shared/auth.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-import {FormControl, Validators} from '@angular/forms';
+
 
 import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -13,13 +15,20 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router) { 
 
+  constructor( private router: Router ) {
+
+  
+ 
+    
+   
 
     
   }
 
   ngOnInit() {
   }
+
+
 
 }

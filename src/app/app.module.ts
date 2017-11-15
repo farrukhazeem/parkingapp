@@ -5,6 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './shared/auth.service';
+
+
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,6 +24,7 @@ import {MatButtonModule,
 } from '@angular/material';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC41euZD-F2JOJ1mtRlHahuNfuRyGMROpc",
@@ -34,7 +41,8 @@ export const firebaseConfig = {
     AppComponent,
     NavbarComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,8 @@ export const firebaseConfig = {
     HttpModule,
     MatCardModule,
     MatInputModule,
-   
+    AngularFireDatabaseModule,
+    AngularFireAuthModule, 
 
     RouterModule,
     RouterModule.forRoot([
@@ -58,14 +67,19 @@ export const firebaseConfig = {
       {
         path: 'signup',
         component:SignupComponent
+      },
+      {
+        path: 'dashboard',
+        component:DashboardComponent
       }
+
 
   ]),
   
   AngularFireModule.initializeApp(firebaseConfig)
  ] ,
 
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
