@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatToolbarModule} from '@angular/material';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,11 @@ import {MatToolbarModule} from '@angular/material';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { 
+
+
+    
+  }
 
   ngOnInit() {
   }
