@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {FormControl, Validators} from '@angular/forms';
 
 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -14,10 +15,11 @@ import { AuthService } from './shared/auth.service';
 import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {MatIconModule} from '@angular/material';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatFormFieldModule} from '@angular/material';
 import {MatButtonModule, 
   MatCheckboxModule,
   MatToolbarModule
@@ -53,9 +55,12 @@ export const firebaseConfig = {
     HttpModule,
     MatCardModule,
     MatInputModule,
+    MatIconModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
-
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     RouterModule,
     RouterModule.forRoot([
       {

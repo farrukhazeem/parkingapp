@@ -7,17 +7,33 @@
               <input matInput placeholder="Name">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Email">
-              </mat-form-field>
+                    <input matInput placeholder="Email" [formControl]="emailFormControl">
+                    <mat-error *ngIf="emailFormControl.hasError('pattern')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+            </mat-form-field>
               <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Password">
-                </mat-form-field>
-
-                <mat-form-field class="example-full-width">
+                    <input matInput type="password" placeholder="Password" [formControl]="passwordFormControl">
+                    <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+                            Please enter a valid password
+                          </mat-error>
+                          <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            Password is <strong>required</strong>
+                          </mat-error>         
+                  </mat-form-field>
+            
+              <mat-form-field class="example-full-width">
                     <input matInput placeholder="Address">
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Contact#">
+                      <input matInput type="number" placeholder="Contact Number" [formControl]="contactFormControl">
+                      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+                            Contact# is <strong>required</strong>
+                          </mat-error>
+                                 
                     </mat-form-field>
                 <button class="center-btn" mat-raised-button color="accent">SignUp</button>
             
