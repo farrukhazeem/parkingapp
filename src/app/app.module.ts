@@ -6,8 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {FormControl, Validators} from '@angular/forms';
 
+import { AngularFireAuth } from 'angularfire2/auth';
 
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule,AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth.service';
 
@@ -27,6 +28,9 @@ import {MatButtonModule,
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BookingComponent } from './booking/booking.component';
+import { ViewComponent } from './view/view.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC41euZD-F2JOJ1mtRlHahuNfuRyGMROpc",
@@ -44,7 +48,11 @@ export const firebaseConfig = {
     NavbarComponent,
     SigninComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookingComponent,
+    ViewComponent,
+    FeedbackComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -84,7 +92,7 @@ export const firebaseConfig = {
   AngularFireModule.initializeApp(firebaseConfig)
  ] ,
 
-  providers: [AuthService],
+  providers: [AuthService,AngularFireDatabase, AuthService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,38 +4,33 @@
   
         <form class="example-form">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Name">
+              <input matInput placeholder="Name" [(ngModel)]="username" name="username">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Email" [formControl]="emailFormControl">
+                    <input matInput placeholder="Email" [(ngModel)]="email" name="email" [formControl]="emailFormControl">
                     <mat-error *ngIf="emailFormControl.hasError('pattern')">
-                      Please enter a valid email address
+                      Please enter a valid email 
                     </mat-error>
                     <mat-error *ngIf="emailFormControl.hasError('required')">
                       Email is <strong>required</strong>
                     </mat-error>
             </mat-form-field>
               <mat-form-field class="example-full-width">
-                    <input matInput type="password" placeholder="Password" [formControl]="passwordFormControl">
-                    <mat-error *ngIf="passwordFormControl.hasError('pattern')">
-                            Please enter a valid password
-                          </mat-error>
-                          <mat-error *ngIf="passwordFormControl.hasError('required')">
-                            Password is <strong>required</strong>
-                          </mat-error>         
+                    <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password">
+                
                   </mat-form-field>
             
               <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Address">
+                    <input matInput placeholder="Address" [(ngModel)]="address" name="address">
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
-                      <input matInput type="number" placeholder="Contact Number" [formControl]="contactFormControl">
-                      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+                      <input matInput type="number" placeholder="Contact Number" [(ngModel)]="contact" name="contact" [formControl]="contactFormControl">
+                      <mat-error *ngIf="contactFormControl.hasError('pattern')">
                             Contact# is <strong>required</strong>
                           </mat-error>
                                  
                     </mat-form-field>
-                <button class="center-btn" mat-raised-button color="accent">SignUp</button>
+                <button class="center-btn" (click)="signup()" mat-raised-button color="accent">SignUp</button>
             
           </form>
   

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject,AngularFireList} from 'angularfire2/database';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase/app';
@@ -48,14 +48,16 @@ return this.authenticated ? this.authState.isAnonymous : false
 }
 
 //// Email/Password Auth ////
-emailSignUp(email: string, password: string,  name: string, address: string, contact: string) {
+emailSignUp(email: string, password: string,  username: string, address: string, contact: string) {
 return this.af.auth.createUserWithEmailAndPassword(email, password)
 .then((user) => {
-  user = {
+  user = {   
     ...user,
-    name,
+    username,
     address,
-    contact
+    contact,
+    password,
+    email,
   }
   this.authState = user
   this.updateUserData();
@@ -106,7 +108,8 @@ const data = {
 email: this.authState.email,
 uid: this.authState.uid,
 username: this.authState.username,
-accountType: this.authState.accountType
+address:  this.authState.address,
+contact: this.authState.contact,
 }
 
 userRef.update(data)
