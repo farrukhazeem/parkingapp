@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {FormControl, Validators} from '@angular/forms';
-
+import { AuthGuard } from './auth.guard'
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AngularFireDatabaseModule,AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
@@ -42,6 +42,25 @@ export const firebaseConfig = {
 
 };
 
+const appRoutes: Routes =[
+  {
+    path: '',
+    pathMatch: 'full',
+component:SigninComponent
+  },
+
+  {
+    path: 'signup',
+    component:SignupComponent
+  },
+  {
+    path: 'dashboard',
+    canActivate:[AuthGuard],
+    component:DashboardComponent
+  }
+]
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,29 +89,12 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     MatFormFieldModule,
     RouterModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        pathMatch: 'full',
-    component:SigninComponent
-      },
-    
-      {
-        path: 'signup',
-        component:SignupComponent
-      },
-      {
-        path: 'dashboard',
-        component:DashboardComponent
-      }
-
-
-  ]),
+    RouterModule.forRoot(appRoutes),
   
   AngularFireModule.initializeApp(firebaseConfig)
  ] ,
 
-  providers: [AuthService,AngularFireDatabase, AuthService, AngularFireAuth],
+  providers: [ AuthGuard,AuthService,AngularFireDatabase, AuthService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
