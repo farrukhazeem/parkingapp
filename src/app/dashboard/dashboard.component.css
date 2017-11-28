@@ -1,9 +1,56 @@
-.body {
-    background-color: white;
-
+.example-card {
+   text-align: center;
+    color: #483d8b;
+    width: 100%;
+    margin-top: 64px;
+    padding: 9px !important;
+    font-size: 24px;
 }
 
-h1 {
+.loc1 {
+margin-top: 53px;
+margin-left: 60px;
+width: 28%;
+height: 350px;
+position: relative !important;
 
-margin: 80px;
 }
+.loc2 {
+    margin-top: 172px;
+    margin-left: 428px;
+    width: 28%;
+    height: 350px;
+    position: absolute !important;
+    top: 0px !important;
+    right: 0 px !important;
+    }
+    .loc3 {
+        margin-top: 172px;
+        margin-left: 795px;
+        width: 28%;
+        height: 350px;
+        position: absolute !important;
+        top: 0px !important;
+        right: 0 px !important;
+        }
+        img {
+            height: 220px;
+        }
+
+        .mat-card-image {
+            margin: 0px !important;
+        }
+
+        .mat-card-title {
+            text-align: center;
+        }
+
+        .mat-raised-button {
+    margin-left: 96px;
+        }
+
+     .app-icon-button {
+         margin-left: 20px;
+     }
+
+  

@@ -1,3 +1,26 @@
-<p>
-  booking works!
-</p>
+<div class="booking-side-wrapper" > 
+
+  <div class="locs">Our Locations </div> 
+
+<form> 
+  <mat-form-field>
+      <mat-select [(value)]="selected">
+     
+        <mat-option *ngFor="let location of locations" [value]="location">
+          {{ location.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <p>You selected: {{selected.name}}</p>
+  
+  </form>
+
+  </div>
+
+    <mat-card>
+        <img mat-card-image src="{{selected.image}}" width="10%">
+        <mat-card-title> {{selected.name}} </mat-card-title>
+       
+        
+    </mat-card>

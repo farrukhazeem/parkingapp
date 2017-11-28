@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { Console } from '@angular/core/src/console';
 
 @Injectable()
 export class AuthService {
@@ -19,12 +20,14 @@ export class AuthService {
     private router:Router) {
       this.af.authState.subscribe((auth) => {
         this.authState = auth;
+        console.log(this.authState);
       });
     }
 
  // Returns true if user is logged in
 get authenticated(): boolean {
-return this.authState !== null;
+  console.warn('AKDHKASHDAHSDKJAHS', this.authState);
+  return this.authState !== null;
 }
 
 // Returns current user data
@@ -93,7 +96,7 @@ return fbAuth.sendPasswordResetEmail(email)
 //// Sign Out ////
 signOut(): void {
 this.af.auth.signOut();
-this.router.navigate(['/']);
+this.router.navigate(['/signin']);
 
 }
 

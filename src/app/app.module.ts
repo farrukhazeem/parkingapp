@@ -12,12 +12,16 @@ import { AngularFireDatabaseModule,AngularFireDatabase, AngularFireList  } from 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth.service';
 
-
 import { AngularFireModule } from 'angularfire2';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material';
@@ -32,6 +36,9 @@ import { BookingComponent } from './booking/booking.component';
 import { ViewComponent } from './view/view.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+
+import { AppRoutesModule } from './app.routes';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyC41euZD-F2JOJ1mtRlHahuNfuRyGMROpc",
   authDomain: "parkingapp-28b47.firebaseapp.com",
@@ -42,23 +49,7 @@ export const firebaseConfig = {
 
 };
 
-const appRoutes: Routes =[
-  {
-    path: '',
-    pathMatch: 'full',
-component:SigninComponent
-  },
 
-  {
-    path: 'signup',
-    component:SignupComponent
-  },
-  {
-    path: 'dashboard',
-    canActivate:[AuthGuard],
-    component:DashboardComponent
-  }
-]
 
 
 @NgModule({
@@ -71,6 +62,7 @@ component:SigninComponent
     BookingComponent,
     ViewComponent,
     FeedbackComponent,
+    
 
   ],
   imports: [
@@ -81,20 +73,28 @@ component:SigninComponent
     MatToolbarModule,
     HttpModule,
     MatCardModule,
+    MatSidenavModule,
     MatInputModule,
+    MatSelectModule,
     MatIconModule,
+    MatDatepickerModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatExpansionModule,
+    MatDatepickerModule, 
     RouterModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutesModule,
+  
   
   AngularFireModule.initializeApp(firebaseConfig)
  ] ,
 
-  providers: [ AuthGuard,AuthService,AngularFireDatabase, AuthService, AngularFireAuth],
+  providers: [ AuthGuard,AuthService,AngularFireDatabase, AngularFireAuth,
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

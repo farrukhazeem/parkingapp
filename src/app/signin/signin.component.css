@@ -16,10 +16,9 @@ margin-top: 40px;
 .body {
   width: 100vw;
   height: 100vh;
-  background-image: url("./../../assets/parkingimg.jpg");
-  background-size:cover; 
+ 
   display: flex;
-  justify-content: center;
+
   align-items: center;
 
 }

@@ -1,19 +1,23 @@
+
 <mat-toolbar color="primary">
   <span>Real Time Parking App</span>
 
   <div class="nav-right">
-    <ng-container >
-        <a mat-raised-button color="accent" routerLinkActive="active" routerLink="/"> Sign In </a>
+    <ng-container *ngIf="!(af.authState | async); else logged_in">
+        <a mat-raised-button color="accent" routerLinkActive="active" routerLink="/signin"> Sign In </a>
      
         <a mat-raised-button color="accent" routerLinkActive="active" routerLink="/signup"> Sign Up </a>
-      <!-- </button> -->
-    </ng-container>
-    <ng-template>
+
+      </ng-container>
+    <ng-template #logged_in>
+        <a mat-button color="accent" class="btn-booking" routerLinkActive="active" routerLink="/booking" > Book Now </a>
+        <a mat-button color="accent" class="btn-booking"  routerLinkActive="active" routerLink="/view"> View Parking </a>
+        <a mat-button color="accent" class="btn-booking"  routerLinkActive="active" routerLink="/feedback"> Comment Now </a>
+        
       <button mat-raised-button color="accent" (click)="signOut()">
         Sign out
       </button>
     </ng-template>
   </div>
 </mat-toolbar>
-
 
