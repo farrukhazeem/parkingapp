@@ -5,42 +5,30 @@
     margin-top: 64px;
     padding: 9px !important;
     font-size: 24px;
+    background: #fff;
 }
 
-.loc1 {
-margin-top: 53px;
-margin-left: 60px;
-width: 28%;
-height: 350px;
-position: relative !important;
-
+.margin-bottom {
+    margin-bottom: 20px;
 }
-.loc2 {
-    margin-top: 172px;
-    margin-left: 428px;
-    width: 28%;
-    height: 350px;
-    position: absolute !important;
-    top: 0px !important;
-    right: 0 px !important;
-    }
-    .loc3 {
-        margin-top: 172px;
-        margin-left: 795px;
-        width: 28%;
-        height: 350px;
-        position: absolute !important;
-        top: 0px !important;
-        right: 0 px !important;
-        }
+
+.margin-right {
+    margin-right: 6px;
+}
+
+.margin-left {
+    margin-left: 6px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: fit-content;
+}
+
         img {
             height: 220px;
         }
-
-        .mat-card-image {
-            margin: 0px !important;
-        }
-
+        
         .mat-card-title {
             text-align: center;
         }

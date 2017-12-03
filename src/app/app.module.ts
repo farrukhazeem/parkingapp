@@ -38,6 +38,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 
 
 import { AppRoutesModule } from './app.routes';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC41euZD-F2JOJ1mtRlHahuNfuRyGMROpc",
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     BookingComponent,
     ViewComponent,
     FeedbackComponent,
+    ErrorpageComponent,
     
 
   ],

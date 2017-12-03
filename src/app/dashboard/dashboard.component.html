@@ -1,27 +1,30 @@
-<mat-card class="example-card">
+<div class="container">
+    <div class="row margin-bottom">
+        <mat-card class="example-card">
+            <span class="dash">Parking Dashboard</span>
+        </mat-card>
+    </div>
 
-          <span class="dash">Parking Dashboard</span>
-</mat-card>
-<mat-card class="loc1" >
-    <img mat-card-image src="assets/booking.jpeg" width="100%">
-   
-    <mat-card-title> Book Parking </mat-card-title>
-    <a mat-raised-button color="accent" class="btn-booking" routerLinkActive="active" routerLink="/booking" > Book Now </a>
-    
-</mat-card>
+    <div class="row">
+        <mat-card class="col margin-right">
+            <img mat-card-image class="img-fluid" src="assets/booking.jpeg" width="100%">
 
-<mat-card class="loc2" >
-    <img mat-card-image src="assets/cpark.jpeg" width="100%">
-    <mat-card-title> View My Booking </mat-card-title>
-    <a mat-raised-button color="accent" class="btn-booking"  routerLinkActive="active" routerLink="/view"> View Parking </a>
-    </mat-card>
+            <mat-card-title> Book Parking </mat-card-title>
+            <a mat-raised-button color="accent" class="btn-booking" routerLinkActive="active" routerLink="/booking"> Book Now </a>
 
-    
-  
-    <mat-card class="loc3" >
-        <img mat-card-image src="assets/feedback.jpeg" width="100%">
-        <mat-card-title> FeedBack </mat-card-title>
-        <a mat-raised-button color="accent" class="btn-booking"  routerLinkActive="active" routerLink="/feedback"> Comment Now </a>
-    </mat-card>
+        </mat-card>
 
-    <router-outlet></router-outlet> 
+        <mat-card class="col">
+            <img mat-card-image class="img-fluid" src="assets/cpark.jpeg" width="100%">
+            <mat-card-title> View My Booking </mat-card-title>
+            <a mat-raised-button color="accent" class="btn-booking" routerLinkActive="active" routerLink="/view"> View Parking </a>
+        </mat-card>
+
+        <mat-card class="col margin-left">
+            <img mat-card-image class="img-fluid" src="assets/feedback.jpeg" width="100%">
+            <mat-card-title> FeedBack </mat-card-title>
+            <a mat-raised-button color="accent" class="btn-booking" routerLinkActive="active" routerLink="/feedback"> Comment Now </a>
+        </mat-card>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -13,6 +13,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ViewComponent } from './view/view.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 import { AuthService } from './shared/auth.service';
@@ -34,10 +35,10 @@ const appRoutes: Routes =[
       { path: 'feedback', component:FeedbackComponent },
       
 
-   // {    
-     // path: '**',
-    //  component:SigninComponent
-   // },
+   {    
+     path: '**',
+    component:ErrorpageComponent
+  },
     {
       path: 'signup',
       component:SignupComponent

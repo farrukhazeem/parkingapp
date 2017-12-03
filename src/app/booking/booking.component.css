@@ -1,18 +1,25 @@
 .booking-side-wrapper {
-    width: 500px;
     height: 500px;
-    background-color: lightpink;
-        margin-top: 63px;
-        position: relative !important;
-    }
-    mat-form-field{
-        margin-left:165px;
-    }
+    background-color: #ff4081;
+    margin-top: 80px;
+    position: relative !important;
+}
+.booking-image-side {
+    height: 500px;
+    margin-top: 80px;
+    margin-left:15px;
+}
+mat-form-field{
+    margin-left:165px;
+}
 
-    p {
-text-align: center;    }
-    .locs {
-        Color: purple;
+p {
+    text-align: center;  
+    Color: #fff; 
+}
+  
+.locs {
+        Color: #fff;
         font-family: 'Lucida Sans';
         font-size: 30px;
         padding-top: 30px;
@@ -23,16 +30,12 @@ text-align: center;    }
 
     .mat-card{
 
-    background-color: lightblue;
-    margin-top: -468px;
-    margin-left: 550px;
-    width: 45%;
-    height: 458px;
-    position: absolute !important;
+    background-color: #ff4081;
+    color:#fff;
+  
     }
 
     .mat-card-image {
-        margin: 0px !important;
         height: 90%;
     }
 
