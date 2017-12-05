@@ -8,6 +8,7 @@ import {FormControl} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ActivatedRoute} from '@angular/router';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import {MatMenuModule} from '@angular/material';
 
 import {MatSelectModule} from '@angular/material/select';
 
@@ -20,7 +21,9 @@ import {MatSelectModule} from '@angular/material/select';
   encapsulation: ViewEncapsulation.None
 })
 export class BookingComponent implements OnInit {
-  
+
+  times = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '3:00 PM', '5:00 PM'];
+  hours = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   selected = {
     name: 'None',
     image: 'assets/image_empty.jpg'

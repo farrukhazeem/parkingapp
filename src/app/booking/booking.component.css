@@ -1,6 +1,6 @@
 .booking-side-wrapper {
     height: 500px;
-    background-color: #ff4081;
+    background-color: #3f51b5;
     margin-top: 80px;
     position: relative !important;
 }
@@ -10,12 +10,20 @@
     margin-left:15px;
 }
 mat-form-field{
-    margin-left:165px;
+    margin-left:124px;
+
+}
+
+.mat-input-wrapper {
+    width: 79%;
 }
 
 p {
     text-align: center;  
-    Color: #fff; 
+    Color: rgb(68, 0, 255); 
+}
+.time{
+    margin-left: 124px !important;
 }
   
 .locs {
@@ -23,12 +31,18 @@ p {
         font-family: 'Lucida Sans';
         font-size: 30px;
         padding-top: 30px;
+        padding-bottom: 10px;
 
         text-align: center;
     }
 
+    .card1{
+        background-color:#fff!important;
+        height:65%;
+       
+    }
 
-    .mat-card{
+    .col-7{
 
     background-color: #ff4081;
     color:#fff;

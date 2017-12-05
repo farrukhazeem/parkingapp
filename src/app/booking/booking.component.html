@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col booking-side-wrapper">
       <div class="locs">Our Locations </div>
-      <form>
+      <mat-card class="card1">
         <mat-form-field>
-          <mat-select [(value)]="selected">
+          <mat-select placeholder="Location" [(value)]="selected">
 
             <mat-option *ngFor="let location of locations" [value]="location">
               {{ location.name }}
@@ -14,7 +14,24 @@
 
         <p>You selected: {{selected.name}}</p>
 
-      </form>
+  <mat-form-field class="time">
+  <mat-select placeholder="Time" [(ngModel)]="time">
+    <mat-option *ngFor="let time of times" [value]="time">
+      {{time}}
+    </mat-option>
+  </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="reserve">
+    <mat-select placeholder="Reserved Hours" [(ngModel)]="hour">
+      <mat-option *ngFor="let hour of hours" [value]="hour">
+        {{hour}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
+</mat-card>
+
+
 
     </div>
     

@@ -36,6 +36,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ViewComponent } from './view/view.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+import {MatMenuModule} from '@angular/material';
 
 import { AppRoutesModule } from './app.routes';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
@@ -83,6 +84,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
     FormsModule,
+    MatMenuModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatExpansionModule,
