@@ -3,14 +3,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormControl} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ActivatedRoute} from '@angular/router';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {MatMenuModule} from '@angular/material';
 
+
+
 import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -20,6 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
   styleUrls: ['./booking.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class BookingComponent implements OnInit {
 
   times = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '3:00 PM', '5:00 PM'];
@@ -41,6 +44,7 @@ export class BookingComponent implements OnInit {
   ]
 
   constructor() {
+    
    }
 
   ngOnInit() {

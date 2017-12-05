@@ -17,9 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material';
-
 import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
@@ -68,6 +66,7 @@ export const firebaseConfig = {
     
 
   ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -80,7 +79,6 @@ export const firebaseConfig = {
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    MatDatepickerModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
     FormsModule,
@@ -88,7 +86,6 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MatDatepickerModule, 
     RouterModule,
     AppRoutesModule,
   
@@ -97,8 +94,9 @@ export const firebaseConfig = {
  ] ,
 
   providers: [ AuthGuard,AuthService,AngularFireDatabase, AngularFireAuth,
-   
+
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
