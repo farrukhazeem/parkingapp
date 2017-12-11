@@ -9,6 +9,8 @@ import { AuthService } from './shared/auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+
+  
   constructor(private auth: AuthService, private router: Router) {
 
   }
@@ -17,17 +19,13 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-      console.warn(this.auth.authenticated)
 
     if (this.auth.authenticated) {
-      
       return true;
     } else {
       this.router.navigate(['/signin']);
-      return true;
+      return false;
     }
-
-
 
   }
 }

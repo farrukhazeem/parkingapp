@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 
 import { AuthGuard } from './auth.guard'
 
@@ -17,28 +17,29 @@ import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 import { AuthService } from './shared/auth.service';
+import { SlotsComponent } from './slots/slots.component';
 
 
 
 const appRoutes: Routes =[
     {
       path:'',
-      redirectTo: '',
+      redirectTo: 'signin',
       pathMatch: 'full',    
-      component:SigninComponent
     },
     {    
       path: 'dashboard',
-      component:DashboardComponent},  
-      { path: 'booking', component:BookingComponent },
-      { path: 'view', component:ViewComponent },
-      { path: 'feedback', component:FeedbackComponent },
-      
-
-   {    
-     path: '**',
-    component:SigninComponent
-  },
+      component:DashboardComponent,
+      canActivate: [AuthGuard],
+    },
+      { path: 'booking', component:BookingComponent,
+      canActivate: [AuthGuard], },
+      { path: 'slots', component:SlotsComponent,
+      canActivate: [AuthGuard], },
+      { path: 'view', component:ViewComponent,
+      canActivate: [AuthGuard], },
+      { path: 'feedback', component:FeedbackComponent,
+      canActivate: [AuthGuard], },
     {
       path: 'signup',
       component:SignupComponent

@@ -9,21 +9,10 @@
     margin-top: 80px;
     margin-left:15px;
 }
-mat-form-field{
-    margin-left:124px;
-
-}
-
-.mat-input-wrapper {
-    width: 79%;
-}
 
 p {
     text-align: center;  
     Color: rgb(68, 0, 255); 
-}
-.time{
-    margin-left: 124px !important;
 }
   
 .locs {
@@ -38,10 +27,22 @@ p {
 
     .card1{
         background-color:#fff!important;
-        height:65%;
-       
+        height:75%;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
     }
 
+    .btn-slot {
+       
+        margin-top: 1px;
+        display: block;
+    }
+    .btn-slot a{
+        color: white;
+    }
+
+  
     .col-7{
 
     background-color: #ff4081;
@@ -53,8 +54,11 @@ p {
         width: calc(100% + 48px);
         margin: 0 -24px 16px -24px;
         height: 90%;
+        margin-top: -24px;
     }
 
     .mat-card-title {
         text-align: center;
     }
+
+ 

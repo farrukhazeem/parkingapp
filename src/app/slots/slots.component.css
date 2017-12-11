@@ -1,11 +1,3 @@
-.mat-tab-group {
-    margin-top: 5px;
-    width: 100%;
-}
-.example-form {
-    text-align: center;
-   
-}
 .example-card {
     margin-top: 65px;
         text-align: center;
@@ -16,3 +8,11 @@
          font-size: 24px;
          background: #fff;
      }
+.slots {
+    margin-top: 10px;
+    width:100%;
+}
+
+.example-form {
+    text-align: center;
+}

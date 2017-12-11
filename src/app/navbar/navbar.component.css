@@ -7,8 +7,11 @@ app-navbar {
 }
 
 .nav-right {
-    margin-left: auto;
     margin-top: 8px;
+    float: right;
+    display: inline-flex;
+    right: 10px;
+    position: absolute;
 }
 .nav-right a{
     color: white;

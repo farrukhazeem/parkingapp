@@ -7,6 +7,8 @@ import { AuthService } from './../shared/auth.service';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +20,8 @@ export class DashboardComponent implements OnInit {
  
     
 
-  constructor(private router: Router ) { 
+  constructor(private router: Router,public authService: AuthService, private af: AngularFireAuth,
+    private db: AngularFireDatabase ) { 
 
 
 

@@ -12,6 +12,8 @@ import { AngularFireDatabaseModule,AngularFireDatabase, AngularFireList  } from 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth.service';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
@@ -34,10 +36,15 @@ import { BookingComponent } from './booking/booking.component';
 import { ViewComponent } from './view/view.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-import {MatMenuModule} from '@angular/material';
+import {MatMenuModule , MatNativeDateModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutesModule } from './app.routes';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { SlotsComponent } from './slots/slots.component';
+
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC41euZD-F2JOJ1mtRlHahuNfuRyGMROpc",
@@ -63,6 +70,7 @@ export const firebaseConfig = {
     ViewComponent,
     FeedbackComponent,
     ErrorpageComponent,
+    SlotsComponent,
     
 
   ],
@@ -77,24 +85,29 @@ export const firebaseConfig = {
     MatCardModule,
     MatSidenavModule,
     MatInputModule,
+    MatDialogModule,
     MatSelectModule,
     MatIconModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
     FormsModule,
     MatMenuModule,
+    MatTabsModule,
     ReactiveFormsModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatExpansionModule,
+    MatDatepickerModule,
     RouterModule,
     AppRoutesModule,
+    MatNativeDateModule,
   
   
   AngularFireModule.initializeApp(firebaseConfig)
  ] ,
 
   providers: [ AuthGuard,AuthService,AngularFireDatabase, AngularFireAuth,
-
+  
   ],
   bootstrap: [AppComponent]
 })

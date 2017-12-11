@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { Console } from '@angular/core/src/console';
 
 @Injectable()
 export class AuthService {
@@ -14,22 +13,20 @@ export class AuthService {
   authState: any = null;
   userRef: AngularFireObject<any>; 
 
-
   constructor(private af: AngularFireAuth,
     private db: AngularFireDatabase,
     private router:Router) {
       this.af.authState.subscribe((auth) => {
-        this.authState = auth;
+        this.authState = auth
         console.log(this.authState);
+       
       });
     }
 
  // Returns true if user is logged in
-get authenticated(): boolean {
-  console.warn('AKDHKASHDAHSDKJAHS', this.authState);
+ authenticated(): boolean {
   return this.authState !== null;
 }
-
 // Returns current user data
 get currentUser(): any {
 return this.authenticated ? this.authState : null;
@@ -64,7 +61,7 @@ return this.af.auth.createUserWithEmailAndPassword(email, password)
   }
   this.authState = user
   this.updateUserData();
-  this.signOut();
+ this.signOut();
   return user;
 })
 .catch(error => console.log(error));
@@ -75,8 +72,8 @@ emailLogin(email: string, password: string) {
 console.warn(email, password)
 return this.af.auth.signInWithEmailAndPassword(email, password)
 .then((user) => {
-  
   this.authState = user;
+
 //  this.updateUserData();
   return user;
 })

@@ -8,6 +8,9 @@
     background: #fff;
 }
 
+.btn-booking{
+    display: block;
+}
 .margin-bottom {
     margin-bottom: 20px;
 }
@@ -31,10 +34,6 @@
         
         .mat-card-title {
             text-align: center;
-        }
-
-        .mat-raised-button {
-    margin-left: 96px;
         }
 
      .app-icon-button {
