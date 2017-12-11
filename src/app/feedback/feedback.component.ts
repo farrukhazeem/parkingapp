@@ -20,37 +20,31 @@ import { AuthService } from './../shared/auth.service';
 })
 export class FeedbackComponent implements OnInit {
   
-  model = {
-    feedback: "",
-  }
+  
+    comment: '';
+
   myGroup2: FormGroup;
   usersRef: AngularFireList<any>;
   users: Observable<any[]>;
   feedbacks: Observable<any[]>;
   feedbacksRef: AngularFireList<any>;
 
-  applyfeedback ={key:'', comment:'',username:'',email:''};
+  
+  applyF ={key:'', comment:'',username:'',email:''};
 
   constructor(private sb2: FormBuilder,private router: Router,public authService: AuthService, private af: AngularFireAuth,
     private db: AngularFireDatabase) { 
-      this.myGroup2 = sb2.group({
-        'feedback':[null]
-      });
-      this.usersRef = db.list('users');
-      
-        this.users = this.usersRef.snapshotChanges().map(changes => {
-          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-        });
+  
 
 
+        
 
 
     }
 
   ngOnInit() {
   }
-  Submit(feedback) {
-    
-  }
+
+ 
   
 }

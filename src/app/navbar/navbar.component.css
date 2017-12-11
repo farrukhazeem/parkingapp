@@ -15,4 +15,5 @@ app-navbar {
 }
 .nav-right a{
     color: white;
+    margin-left:5px;
 }
