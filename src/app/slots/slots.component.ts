@@ -1,4 +1,12 @@
+import { AuthService } from './../shared/auth.service';
+import { AuthGuard } from './../auth.guard';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-slots',
@@ -8,9 +16,26 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SlotsComponent implements OnInit {
 
-  constructor() { }
+  slotsRef: AngularFireList<any>;
+  slots: Observable<any[]>;
+  slotList = [];
 
-  ngOnInit() {
+  constructor(private router: Router,public authService: AuthService, private af: AngularFireAuth,
+    private db: AngularFireDatabase,) { 
+
+      this.slotsRef = db.list('/slots');
+      this.slots = this.slotsRef.snapshotChanges().map(changes => {
+        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+      });
   }
 
+  ngOnInit() {
+    this.slots.subscribe(slot => {
+      this.slotList = slot;
+    });
+  }
+
+  updateSlot(val) {
+    console.log(val);
+  }
 }

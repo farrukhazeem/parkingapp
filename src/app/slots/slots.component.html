@@ -5,24 +5,26 @@
     </mat-card>
   <mat-card class="slots">
   
-   
-  <form class="example-form">
-   
-    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot1()">Slot 1</button>
-    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot2()">Slot 2</button>
-    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot3()">Slot 3</button>
-    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot4()">Slot 4</button>
+      <button class ="view-btn" mat-raised-button color="primary" *ngFor="let slot of slotList" (click)="updateSlot(slot)" [value]="slot">
+        {{ slot.name }}
+      </button>
+   <!--
+    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot1(val)">Slot 1</button>
+    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot2(val)">Slot 2</button>
+    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot3(val)">Slot 3</button>
+    <button class ="view-btn" mat-raised-button color="primary"(click)="Slot4(val)">Slot 4</button>
   <br> <br> 
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot5()">Slot 5</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot6()">Slot 6</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot7()">Slot 7</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot8()">Slot 8</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot5(val)">Slot 5</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot6(val)">Slot 6</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot7(val)">Slot 7</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot8(val)">Slot 8</button>
   <br> <br> 
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot9()">Slot 9</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot10()">Slot 10</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot11()">Slot 11</button>
-  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot12()">Slot 12</button>
-  </form>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot9(val)">Slot 9</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot10(val)">Slot 10</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot11(val)">Slot 11</button>
+  <button class ="view-btn" mat-raised-button color="primary"(click)="Slot12(val)">Slot 12</button>
+   -->
+
   </mat-card>
   
   </div>

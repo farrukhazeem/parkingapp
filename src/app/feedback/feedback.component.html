@@ -2,16 +2,15 @@
 <mat-card class="feedback">
 
   <h1> Feedback </h1>
-<form #commentForm="ngForm" novalidate >
-  <div class="form-group">
+<form class="example-form">
+  
       <mat-form-field class="example-container">
-    <textarea matInput placeholder="Leave a comment" id="feedback" [(ngModel)]="applyF.comment" name="feedback" #feedback="ngModel" class="form-control"></textarea>
-    <div *ngIf="feedback.errors && (feedback.dirty || feedback.touched)" class="alert alert-danger">
-        <div [hidden]="!feedback.errors.required">Feedback is Required!</div>
-        </div>
+    <textarea matInput placeholder="Leave a comment" id="comment" [(ngModel)]="applyF.comment" name="comment" #comment="ngModel"></textarea>
+  
   </mat-form-field>
-  </div>
-  <button class ="view-btn" mat-raised-button color="primary" (click)="submitFeedback()">Submit</button>
+ 
+  <button class ="view-btn" mat-raised-button color="primary" (click)="submit(comment)">Submit</button>
+  
 </form>
 </mat-card>
 
