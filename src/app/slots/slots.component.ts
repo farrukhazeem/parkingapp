@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-
+import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
@@ -36,6 +36,8 @@ export class SlotsComponent implements OnInit {
   }
 
   updateSlot(val) {
+   this.slotsRef = this.db.list('slots');
     console.log(val);
+    this.slotsRef.update(val.key, {is_booked: true});
   }
 }

@@ -16,6 +16,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { AngularFireModule } from 'angularfire2';
 
+
+import { CommonModule } from '@angular/common';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material';
@@ -82,6 +85,7 @@ export const firebaseConfig = {
     MatCheckboxModule,
     MatToolbarModule,
     HttpModule,
+    
     MatCardModule,
     MatSidenavModule,
     MatInputModule,
@@ -90,6 +94,7 @@ export const firebaseConfig = {
     MatIconModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
+    CommonModule,
     FormsModule,
     MatMenuModule,
     MatTabsModule,

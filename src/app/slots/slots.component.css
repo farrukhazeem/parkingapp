@@ -10,7 +10,15 @@
      }
 .slots {
     margin-top: 10px;
-    width:100%;
+    width:44%;
+}
+.view-btn{
+margin-right: 5px;
+margin-bottom: 10px;
+}
+
+.view-btn.mat-raised-button.mat-primary.bookingTrue {
+    background-color: green;
 }
 
 .example-form {

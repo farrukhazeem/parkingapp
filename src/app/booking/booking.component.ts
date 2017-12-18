@@ -48,7 +48,7 @@ export class BookingComponent implements OnInit {
   animal: string;
   name: string;
 
-  editUser = {key:'',username:'',email:'',location:'',date:'',time:'',reserveHrs:''};
+  bookingInfo = {key:'',username:'',email:'',location:'',date:'',time:'',reserveHrs:''};
   
 
   times = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '3:00 PM', '5:00 PM'];
@@ -109,6 +109,9 @@ export class BookingComponent implements OnInit {
    
   }
   ViewSlot(val){
-    this.db.list('/bookings').push(val).then(() => this.router.navigateByUrl('/slots'));
+    this.db.list('/bookings').push(val).then(() => {
+      this.bookingInfo = val;
+      this.router.navigateByUrl('/slots')
+    });
   }
 }
