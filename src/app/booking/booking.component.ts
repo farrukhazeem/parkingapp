@@ -33,11 +33,15 @@ export class BookingComponent implements OnInit {
   post: '';
   location: '';
   time: '';
-  date: '';
+  
   reserveHrs: '';  
   email:'';
   username:'';
 
+ date = new Date().getDate()
+ minDate= new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate() );
+maxDate = new Date(2020, 0, 1);
+ 
   usersRef: AngularFireList<any>;
   users: Observable<any[]>;
   bookingsRef: AngularFireList<any>;

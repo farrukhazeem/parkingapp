@@ -2,7 +2,9 @@
     <div class="row"> 
     <mat-card class="example-card">
        <b> <span class="dash">Parking Slots Available</span>  </b>
-    </mat-card>
+
+      </mat-card>
+    
   <mat-card class="slots">
   
       <button [ngClass]="{'view-btn': true, 'bookingTrue': slot.is_booked}" mat-raised-button color="primary" *ngFor="let slot of slotList;" (click)="updateSlot(slot, i)" [value]="slot">
@@ -13,6 +15,5 @@
   </div>
 
   </mat-card>
-  
   </div>
   </div>
