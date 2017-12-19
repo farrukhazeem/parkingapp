@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import {FormControl, Validators} from '@angular/forms';
 import { AuthGuard } from './auth.guard'
 import { AngularFireAuth } from 'angularfire2/auth';
+import { BookingServiceService } from './booking-service.service';
 
 import { AngularFireDatabaseModule,AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -74,8 +75,6 @@ export const firebaseConfig = {
     FeedbackComponent,
     ErrorpageComponent,
     SlotsComponent,
-    
-
   ],
 
   imports: [
@@ -112,7 +111,7 @@ export const firebaseConfig = {
  ] ,
 
   providers: [ AuthGuard,AuthService,AngularFireDatabase, AngularFireAuth,
-  
+    BookingServiceService
   ],
   bootstrap: [AppComponent]
 })

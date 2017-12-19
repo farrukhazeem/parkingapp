@@ -7,6 +7,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import { BookingServiceService } from '../booking-service.service';
 
 @Component({
   selector: 'app-slots',
@@ -20,7 +21,7 @@ export class SlotsComponent implements OnInit {
   slots: Observable<any[]>;
   slotList = [];
 
-  constructor(private router: Router,public authService: AuthService, private af: AngularFireAuth,
+  constructor(private router: Router, private bs: BookingServiceService, public authService: AuthService, private af: AngularFireAuth,
     private db: AngularFireDatabase,) { 
 
       this.slotsRef = db.list('/slots');
@@ -33,11 +34,13 @@ export class SlotsComponent implements OnInit {
     this.slots.subscribe(slot => {
       this.slotList = slot;
     });
+    const bk = this.bs.getBooking();
+    console.log(bk);
   }
 
   updateSlot(val) {
    this.slotsRef = this.db.list('slots');
-    console.log(val);
+    
     this.slotsRef.update(val.key, {is_booked: true});
   }
 }

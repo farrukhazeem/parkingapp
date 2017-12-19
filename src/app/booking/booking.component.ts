@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 
 import {MatMenuModule} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as firebase from 'firebase/app';
+import { BookingServiceService } from '../booking-service.service';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -69,7 +70,7 @@ export class BookingComponent implements OnInit {
     },
   ]
 
-  constructor(private fb: FormBuilder, private router: Router,public authService: AuthService, private af: AngularFireAuth,
+  constructor(private fb: FormBuilder, private bs: BookingServiceService, private router: Router,public authService: AuthService, private af: AngularFireAuth,
     private db: AngularFireDatabase, public dialog: MatDialog ) {
     
       this.rForm = fb.group({
@@ -111,6 +112,7 @@ export class BookingComponent implements OnInit {
   ViewSlot(val){
     this.db.list('/bookings').push(val).then(() => {
       this.bookingInfo = val;
+      this.bs.setBooking(val);
       this.router.navigateByUrl('/slots')
     });
   }
