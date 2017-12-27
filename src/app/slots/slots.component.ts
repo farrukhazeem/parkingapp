@@ -27,17 +27,30 @@ export class SlotsComponent implements OnInit {
   constructor(private router: Router, private bs: BookingServiceService, public authService: AuthService, private af: AngularFireAuth,
     private db: AngularFireDatabase,) { 
 
-      this.slotsRef = db.list('/slots');
-      this.slots = this.slotsRef.snapshotChanges().map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-      });
+     
   }
 
   ngOnInit() {
+    this.bk = this.bs.getBooking();
+    let location = '';
+    switch(this.bk.location.name) {
+      case 'Karachi Airport':
+        location = 'airport';
+        break;
+      case 'City Station':
+        location = 'cityStation';
+        break;
+      case 'Atrium Mall':
+        location = 'atrium';
+        break;
+    }
+    this.slotsRef = this.db.list('/slots', ref => ref.orderByChild('location').equalTo(location));
+    this.slots = this.slotsRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
     this.slots.subscribe(slot => {
       this.slotList = slot;
     });
-    this.bk = this.bs.getBooking();
   }
 
   updateSlot(val,i) {
