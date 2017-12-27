@@ -43,7 +43,6 @@ export class FeedbackComponent implements OnInit {
 
     this.usersRef.snapshotChanges(['child_added'])
       .subscribe(actions => {
-        this.arr = [];
         actions.forEach(action => {
           this.key = action.payload.val().username;
         });
@@ -59,7 +58,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.warn();
+  
     this.af.authState.subscribe(auth => {
       this.data = auth
       if (auth) {
@@ -67,9 +66,8 @@ export class FeedbackComponent implements OnInit {
           .subscribe(actions => {
             actions.forEach(action => {
               if (action.key === 'username') {
-                console.warn();
-
                this.username = action.payload.val();
+               console.warn(this.username);
               }
 
             });
@@ -81,7 +79,7 @@ export class FeedbackComponent implements OnInit {
   }
   submit(comment) {
 
-    this.feedbacksRef.push({ comment: comment.model, email: this.af.auth.currentUser.email, });
+    this.feedbacksRef.push({ comment: comment.model, email: this.af.auth.currentUser.email,username:this.username,uid:this.af.auth.currentUser.uid });
 
     this.applyF.comment = '';
   }

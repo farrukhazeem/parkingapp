@@ -7,7 +7,7 @@
     
   <mat-card class="slots">
   
-      <button [ngClass]="{'view-btn': true, 'bookingTrue': slot.is_booked}" mat-raised-button color="primary" *ngFor="let slot of slotList;" (click)="updateSlot(slot, i)" [value]="slot">
+      <button *ngFor="let slot of slotList;" [ngClass]="{'view-btn': true, 'bookingTrue': slot.is_booked}"  mat-raised-button color="primary" (click)="updateSlot(slot, i)" [value]="slot">
         {{ slot.name }}
       </button>
   <div class="center-btn">

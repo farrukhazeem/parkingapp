@@ -37,6 +37,7 @@ export class BookingComponent implements OnInit {
   reserveHrs: '';  
   email:'';
   username:'';
+  key:'';
 
  date = new Date().getDate()
  minDate= new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate() );
@@ -105,7 +106,6 @@ maxDate = new Date(2020, 0, 1);
       this.bookings = this.bookingsRef.snapshotChanges().map(changes => {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
       });
-
    }
 
   
@@ -114,9 +114,21 @@ maxDate = new Date(2020, 0, 1);
    
   }
   ViewSlot(val){
-    this.db.list('/bookings').push(val).then(() => {
+    console.log(val);
+    this.db.list('/bookings').push(
+      {
+        date: val.date.toDateString(), location: val.location,
+        time: val.time, reserveHrs: val.reserveHrs,
+        user_id: this.currentUser.key
+      }
+    ).then((data) => {
+      val = {
+        ...val,
+        key: data.key,
+      }
       this.bookingInfo = val;
       this.bs.setBooking(val);
+      console.log(this.bs.setBooking)
       this.router.navigateByUrl('/slots')
     });
   }

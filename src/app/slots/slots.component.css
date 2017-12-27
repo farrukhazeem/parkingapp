@@ -21,9 +21,16 @@ margin-bottom: 10px;
     text-align: center;
 
 }
-
-.view-btn.mat-raised-button.mat-primary.bookingTrue {
+ .view-btn.mat-raised-button.mat-primary.bookingTrue {
     background-color: green;
+} 
+
+.class_green{
+    background-color: green !important;
+}
+
+.class_blue{
+    background-color: blue !important;
 }
 
 .example-form {

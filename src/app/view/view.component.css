@@ -16,3 +16,40 @@
          font-size: 24px;
          background: #fff;
      }
+     .adminPanel {
+        margin:20px;
+   
+        width: 270px;
+        text-align: center;
+        background-color: #E6EE9C;
+        display: inline-block;
+        
+        }
+
+        .prnt-btn{
+            float: right;
+        
+            margin-top: -60px;
+            margin-right: 5px;
+        }
+        .btns{
+            padding: 8px;
+        }
+    .bookinglist-container{
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 6px;
+        margin: 4px 0px !important; 
+    }
+        .adminimage{
+            margin-top: 10px;
+        }
+
+        mat-card.stdcmp {
+            position: relative;
+            width: calc(100% - 350px);
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        

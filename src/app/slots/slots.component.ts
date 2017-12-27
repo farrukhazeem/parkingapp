@@ -9,6 +9,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from 
 import * as firebase from 'firebase/app';
 import { BookingServiceService } from '../booking-service.service';
 
+
 @Component({
   selector: 'app-slots',
   templateUrl: './slots.component.html',
@@ -20,7 +21,8 @@ export class SlotsComponent implements OnInit {
   slotsRef: AngularFireList<any>;
   slots: Observable<any[]>;
   slotList = [];
-
+  bk: any;
+  is_booked: boolean;
   constructor(private router: Router, private bs: BookingServiceService, public authService: AuthService, private af: AngularFireAuth,
     private db: AngularFireDatabase,) { 
 
@@ -34,13 +36,16 @@ export class SlotsComponent implements OnInit {
     this.slots.subscribe(slot => {
       this.slotList = slot;
     });
-    const bk = this.bs.getBooking();
-    console.log(bk);
+    this.bk = this.bs.getBooking();
+    console.log(this.bk);
   }
 
-  updateSlot(val) {
-   this.slotsRef = this.db.list('slots');
-    
-    this.slotsRef.update(val.key, {is_booked: true});
+  updateSlot(val,i) {
+    this.slotsRef = this.db.list('slots');
+    this.slotsRef.update(val.key, {is_booked: true, booking_id: this.bk.key});
+    this.db.list('bookings').update(this.bk.key, {slot_id: val.key, slot_name: val.name});
   }
+
+
+
 }
