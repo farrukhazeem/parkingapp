@@ -45,7 +45,7 @@
             margin-top: 10px;
         }
 
-        mat-card.stdcmp {
+        .mat-card.stdcmp {
             position: relative;
             width: calc(100% - 350px);
             margin: 20px;

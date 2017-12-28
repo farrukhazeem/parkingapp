@@ -10,4 +10,9 @@
     width: 100%;
   }
 
- 
+  .col.view-btn{
+    width: 88px;
+    margin: 0 auto;
+    float: none;
+    display: block;
+ }

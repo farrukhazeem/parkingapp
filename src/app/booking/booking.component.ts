@@ -12,7 +12,7 @@ import {MatMenuModule} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import * as firebase from 'firebase/app';
 import { BookingServiceService } from '../booking-service.service';
-
+import * as moment from 'moment';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import {MatSelectModule} from '@angular/material/select';
@@ -33,7 +33,9 @@ export class BookingComponent implements OnInit {
   post: '';
   location: '';
   time: '';
-  
+
+ 
+
   reserveHrs: '';  
   email:'';
   username:'';
@@ -115,20 +117,24 @@ maxDate = new Date(2020, 0, 1);
   }
   ViewSlot(val){
     console.log(val);
+    const duration = moment.duration(moment(val.time, ["h:mm A"]).format("HH:mm")).asSeconds();
+    const timeStamp = moment(val.date.toString()).add(duration, 's').toString();
+    console.log(timeStamp);
     this.db.list('/bookings').push(
       {
         date: val.date.toDateString(), location: val.location,
         time: val.time, reserveHrs: val.reserveHrs,
+        timeStamp: timeStamp,
         user_id: this.currentUser.key
       }
     ).then((data) => {
       val = {
         ...val,
         key: data.key,
+        timeStamp: timeStamp,
       }
       this.bookingInfo = val;
       this.bs.setBooking(val);
-      console.log(this.bs.setBooking)
       this.router.navigateByUrl('/slots')
     });
   }
