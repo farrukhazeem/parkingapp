@@ -56,6 +56,18 @@ export class SlotsComponent implements OnInit {
       });
   }
 
+  removeSlotIfExpred(slots) {
+    console.log(slots);
+    slots.map(slot => {
+      if(moment().isAfter(slot.expiryDate)) {
+        console.log('Slot is Expired');
+        this.bookingsRef.remove(slot.booking_id);
+        this.slotsRef.update(slot.key, {is_booked: false,uid: '000', expiryDate: null, booking_id: '000'});
+      }
+      console.log('Slot is not expired');
+    });
+  }
+
   ngOnInit() {
     this.bk = this.bs.getBooking();
     console.log(this.bk);
@@ -79,16 +91,15 @@ export class SlotsComponent implements OnInit {
       this.bookingList = booking;
     });
 
-
-
-
     this.slotsRef = this.db.list('/slots', ref => ref.orderByChild('location').equalTo(location));
     this.slots = this.slotsRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
     this.slots.subscribe(slot => {
       this.slotList = slot;
+      this.removeSlotIfExpred(this.slotList);
     });
+    
   }
 
   updateSlot(val,i) {
@@ -99,7 +110,7 @@ export class SlotsComponent implements OnInit {
    let isBooked = false;
    const hrs = parseInt(this.bk.reserveHrs);
    const expiryDate = moment(this.bk.timeStamp).add(hrs, 'h');
-   console.log(expiryDate);
+  
     if(!val.is_booked) {
       isBooked= true;
       bid = this.bk.key;
@@ -109,7 +120,7 @@ export class SlotsComponent implements OnInit {
       this.slotsRef.update(val.key, {is_booked: isBooked, booking_id: bid, uid: uid, expiryDate: expiryDate.toString()});
       this.db.list('bookings').update(this.bk.key, {slot_id: val.key, slot_name: val.name});
     }
-      
+ 
   }
 
 

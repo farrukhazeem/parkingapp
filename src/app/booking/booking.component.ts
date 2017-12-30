@@ -113,7 +113,7 @@ maxDate = new Date(2020, 0, 1);
   
 
   ngOnInit() {
-   
+
   }
   ViewSlot(val){
     console.log(val);

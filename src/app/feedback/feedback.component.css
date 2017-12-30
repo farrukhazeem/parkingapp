@@ -7,8 +7,10 @@
 }
 
 .example-container{
-    width: 100%;
-  }
+  
+   width: 100% ;
+    display: block;
+    float: none;  }
 
   .col.view-btn{
     width: 88px;
@@ -16,3 +18,10 @@
     float: none;
     display: block;
  }
+ h1 {
+    width: fit-content;
+    float: none;
+    margin-left: 0px;
+    left: 0px;
+    padding: 0px;
+}
