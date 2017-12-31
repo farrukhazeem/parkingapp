@@ -49,6 +49,8 @@ maxDate = new Date(2020, 0, 1);
   users: Observable<any[]>;
   bookingsRef: AngularFireList<any>;
   bookings: Observable<any[]>;
+  slotsRef: AngularFireList<any>;
+  slots: Observable<any[]>;
 
   currentUserKey;
   currentUser;
@@ -59,7 +61,7 @@ maxDate = new Date(2020, 0, 1);
   bookingInfo = {key:'',username:'',email:'',location:'',date:'',time:'',reserveHrs:''};
   
 
-  times = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '3:00 PM', '5:00 PM'];
+  times = ['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
   hours = ['1 hr', '2 hrs', '3 hrs', '4 hrs', '5 hrs'];
   selected = {
     name: 'None',
@@ -108,8 +110,31 @@ maxDate = new Date(2020, 0, 1);
       this.bookings = this.bookingsRef.snapshotChanges().map(changes => {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
       });
+
+      
+    this.slotsRef = this.db.list('/slots');
+    this.slots = this.slotsRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+    this.slots.subscribe(slot => {
+      this.removeSlotIfExpred(slot);
+    });
+
    }
 
+   
+  removeSlotIfExpred(slots) {
+    console.log(slots);
+    slots.map(slot => {
+      if(moment().isAfter(slot.expiryDate)) {
+        console.log('Slot is Expired');
+       
+        this.slotsRef.update(slot.key, {is_booked: false,uid: '000', expiryDate: null, booking_id: '000'});
+        this.bookingsRef.remove(slot.booking_id);
+      }
+      console.log('Slot is not expired');
+    });
+  }
   
 
   ngOnInit() {

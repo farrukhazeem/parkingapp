@@ -55,18 +55,19 @@ export class SlotsComponent implements OnInit {
         }
       });
   }
-
+/*
   removeSlotIfExpred(slots) {
     console.log(slots);
     slots.map(slot => {
       if(moment().isAfter(slot.expiryDate)) {
         console.log('Slot is Expired');
-        this.bookingsRef.remove(slot.booking_id);
+       
         this.slotsRef.update(slot.key, {is_booked: false,uid: '000', expiryDate: null, booking_id: '000'});
+        this.bookingsRef.remove(slot.booking_id);
       }
       console.log('Slot is not expired');
     });
-  }
+  }*/
 
   ngOnInit() {
     this.bk = this.bs.getBooking();
@@ -97,7 +98,8 @@ export class SlotsComponent implements OnInit {
     });
     this.slots.subscribe(slot => {
       this.slotList = slot;
-      this.removeSlotIfExpred(this.slotList);
+      //this.removeSlotIfExpred(this.slotList);
+      
     });
     
   }
